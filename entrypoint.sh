@@ -4,29 +4,29 @@ for ((i = 0 ; i < 2 ; i++)); do
     read input
     if [[ $input == "1" ]] ; then
             echo "python3 regionfixer.py -p 4 /data/world";
-			$(echo "python3 regionfixer.py -p 4 /data/world");
+	    $(echo "python3 regionfixer.py -p 4 /data/world");
             i=0;
 	elif [[ $input == "2" ]] ; then
             echo "python3 regionfixer.py -p 4 --delete-corrupted /data/world";
-			$(echo "python3 regionfixer.py -p 4 --delete-corrupted /data/world");
+	    $(echo "python3 regionfixer.py -p 4 --delete-corrupted /data/world");
             i=0;
 	elif [[ $input == "3" ]] ; then
             echo "Enter the path to the decompressed backup(e.g. /data/FULLBACKUP/decompressed/world)";
-            read backuppath
-			echo "python3 regionfixer.py -p 4 --replace-wrong --backups $backuppath /data/world";
+            read backuppath;
+	    echo "python3 regionfixer.py -p 4 --replace-wrong --backups $backuppath /data/world";
             $(echo "python3 regionfixer.py -p 4 --replace-wrong --backups $backuppath /data/world");
             i=0;
     elif [[ $input == "4" ]] ; then
             echo "Enter a custom command(e.g. python3 regionfixer.py -p 4 --delete-entities --entity-limit 100 /data/world):";
-            read customcommand
-			echo "$customcommand";
+            read customcommand;
+	    echo "$customcommand";
             $(echo "$customcommand");
             i=0;
     elif [[ $input == "5" ]] ; then
-			echo "Exiting the programm..";
+	    echo "Exiting the programm..";
             i=1;
 	else
-		echo "Wrong input!";
+	    echo "Wrong input!";
         i=0;
 	fi;
 done
