@@ -1,6 +1,6 @@
 #!/bin/bash
 for ((i = 0 ; i < 2 ; i++)); do
-    printf "For Scanning the World enter: 1\n For Scanning and deleting corrupted files enter: 2\n For replacing chunks or regionfiles with backupfiles enter: 3\n Exit by entering: 4\n"
+    printf "For Scanning the World enter: 1\n For Scanning and deleting corrupted files enter: 2\n For replacing chunks or regionfiles with backupfiles enter: 3\n For entering a custom command enter: 4\n Exit by entering: 5\n"
     read input
     if [[ $input == "1" ]] ; then
             echo "python3 regionfixer.py -p 4 /data/world";
@@ -17,6 +17,12 @@ for ((i = 0 ; i < 2 ; i++)); do
             $(echo "python3 regionfixer.py -p 4 --replace-wrong --backups $backuppath /data/world");
             i=0;
     elif [[ $input == "4" ]] ; then
+            echo "Enter a custom command(e.g. python3 regionfixer.py -p 4 --delete-entities --entity-limit 100 /data/world):";
+            read customcommand
+			echo "$customcommand";
+            $(echo "$customcommand");
+            i=0;
+    elif [[ $input == "5" ]] ; then
 			echo "Exiting the programm..";
             i=1;
 	else
@@ -24,5 +30,3 @@ for ((i = 0 ; i < 2 ; i++)); do
         i=0;
 	fi;
 done
-
-
