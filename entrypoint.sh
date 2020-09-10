@@ -28,5 +28,5 @@ for ((i = 0 ; i < 2 ; i++)); do
     else
 	    echo "Wrong input!";
             i=0;
-	fi;
+    fi;
 done
